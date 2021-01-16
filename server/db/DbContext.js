@@ -3,7 +3,7 @@ import ValueSchema from '../models/Value'
 import AccountSchema from '../models/Account'
 
 class DbContext {
-  Values = mongoose.model('Value', ValueSchema);
+  Cards = mongoose.model('Card', CardSchema);
   Account = mongoose.model('Account', AccountSchema);
 }
 
