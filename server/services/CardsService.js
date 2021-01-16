@@ -14,7 +14,7 @@ class AnimalsService {
       _id: id,
     });
     if (!card) {
-      throw new BadRequest("Invalid Id");
+      throw new BadRequest('Invalid Id');
     }
     return card;
   }
@@ -24,7 +24,7 @@ class AnimalsService {
       let data = await dbContext.Cards.create(rawData);
       return data;
     }
-    throw new BadRequest("Only Organizations may post new animals.");
+    throw new BadRequest('Only Organizations may post new animals.');
   }
   // Makes a call to the database to edit an Animal object then makes a null check before returning data
   async edit(id, creatorEmail, update) {
@@ -34,7 +34,7 @@ class AnimalsService {
       { new: true }
     );
     if (!data) {
-      throw new BadRequest("Invalid ID or you do not have permissions");
+      throw new BadRequest('Invalid ID or you do not have permissions');
     }
     return data;
   }
@@ -45,7 +45,7 @@ class AnimalsService {
       creatorEmail: creatorEmail,
     });
     if (!data) {
-      throw new BadRequest("Invalid Id or you are not Authorized");
+      throw new BadRequest('Invalid Id or you are not Authorized');
     }
     await dbContext.Favorites.deleteMany({ cardId: id });
   }

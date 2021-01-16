@@ -47,7 +47,7 @@ export class AnimalsController extends BaseController {
     try {
       req.body.creatorEmail = req.userInfo.email.toLowerCase();
       await cardsService.deleteById(req.params.id, req.body.creatorEmail);
-      return res.send("Successfully Deleted!");
+      return res.send('Successfully Deleted!');
     } catch (error) {
       next(error);
     }
