@@ -1,7 +1,7 @@
 import { dbContext } from "../db/DbContext";
 import { BadRequest } from "../utils/Errors";
 
-class AnimalsService {
+class CardsService {
   async findAll(query = {}) {
     let values = await dbContext.Cards.find(query)
       .limit(100)
@@ -26,7 +26,6 @@ class AnimalsService {
     }
     throw new BadRequest('Only Organizations may post new animals.');
   }
-  // Makes a call to the database to edit an Animal object then makes a null check before returning data
   async edit(id, creatorEmail, update) {
     let data = await dbContext.Cards.findOneAndUpdate(
       { _id: id, creatorEmail: creatorEmail },
@@ -38,7 +37,6 @@ class AnimalsService {
     }
     return data;
   }
-  // Makes a call to the database to delete an card object by the objects id then makes an additional call to delete all relationships
   async deleteById(id, creatorEmail) {
     let data = await dbContext.Cards.findByIdAndDelete({
       _id: id,
@@ -51,4 +49,4 @@ class AnimalsService {
   }
 }
 
-export const animalsService = new AnimalsService();
+export const cardsService = new CardsService();
