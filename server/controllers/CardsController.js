@@ -5,14 +5,13 @@ import auth0Provider from "@bcwdev/auth0provider";
 
 export class AnimalsController extends BaseController {
   constructor() {
-    super("api/cards");
+    super('api/cards');
     this.router
-      .get("", this.getAllCards)
-      // NOTE: Beyond this point all routes require Authorization tokens (no restrictions)
+      .get('', this.getAllCards)
       .use(auth0Provider.getAuthorizedUserInfo)
-      .get("/:id", this.getById)
-      .post("", this.create)
-      .delete("/:id", this.deleteCard);
+      .get('/:id', this.getById)
+      .post('', this.create)
+      .delete('/:id', this.deleteCard);
   }
 
   async getAllCards(req, res, next) {
