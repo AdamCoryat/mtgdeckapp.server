@@ -33,6 +33,7 @@ const Card = new Schema(
   {
     name: { type: String, required: true },
     names: [ namesSchema ],
+    secondaryName: { type: String },
     manaCost: { type: String, required: true },
     colors: [ colorsSchema ],
     colorIdentity: [ colorIdSchema ],
